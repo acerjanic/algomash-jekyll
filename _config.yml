@@ -1,17 +1,24 @@
 # Where Things Are
 source: .
 destination: ./_site
-plugins: ./_plugins
-layouts: ./_layouts
-data_source: ./_data
+plugins_dir: ./_plugins
+layouts_dir: ./_layouts
+data_dir: ./_data
 collections: null
 
 ## Setup
 title: 'Algomash'
 tagline: 'Create Documentation Website Using Jekyll'
 description: 'Algomash is a Jekyll boilerplate with necessary operations for creating Documentation website for small projects.'
-url: http://algomash.com
-assets: http://algomash.com/assets/
+baseurl:
+#assets: http://algomash.com/assets/
+
+#Collections for Documentation
+collections:
+  docs:
+   output: true
+   permalink: /docs/:path
+
 
 # Handling Reading
 safe:         false
@@ -29,11 +36,11 @@ unpublished: false
 
 # Plugins
 whitelist: []
-gems:      []
+gems:      [jekyll-paginate]
 
 # Conversion
 markdown:    kramdown
-highlighter: pygments
+highlighter: rouge
 lsi:         false
 excerpt_separator: "\n\n"
 
@@ -47,7 +54,7 @@ baseurl: "" # does not include hostname
 permalink: /:categories/:title/
 paginate_path: /page:num
 paginate: 15
-timezone: Asia/Calcutta
+timezone: America/Chicago
 include: ['_pages']
 relative_permalinks: false
 quiet:    false
@@ -66,11 +73,3 @@ kramdown:
   toc_levels:     1..6
   smart_quotes:   lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
-
-  coderay:
-    coderay_wrap:              div
-    coderay_line_numbers:      inline
-    coderay_line_number_start: 1
-    coderay_tab_width:         4
-    coderay_bold_every:        10
-    coderay_css:               style
